@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>iNEWS</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1><i><b>News</b>WebApp</i></h1>
+      <form class="search-form" action="/search" method="post">
+        <input type="text" name="query" placeholder="Search for news..." required/>
+        <button type="submit">Search</button>
+      </form>
+    </header>
+    <br />
+    <hr />
+    <div class="title">
+      <h2>GET LATEST NEWS & TRENDS!!</h2>
+    </div>
+    <div class="news-container">
+      <% if (articles.length > 0) { %> <% articles.forEach(article => { %>
+      <div class="news-box">
+        <img src="<%- article.urlToImage %>" alt="<%- article.title %>" />
+        <div class="news-content">
+          <h2><%- article.title %></h2>
+          <p><%- article.description %></p>
+          <a href="<%= article.url %>" target="_blank" class="more-info-button"
+            >More Info</a
+          >
+        </div>
+      </div>
+
+      <% })%> <% } %>
+    </div>
+    <hr />
+    <footer>
+      <h2>© Copyright 2024, Made by Tushar</h2>
+    </footer>
+    <hr>
+  </body>
+</html>
